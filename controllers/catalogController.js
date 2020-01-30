@@ -9,7 +9,7 @@ var Genre = require('../models/genre')
 var async = require('async');
 
 // Home Page
-exports.home = (req, res) {
+exports.home = function(req, res){
 
     async.parallel({
         Podcast_count: function(callback){
@@ -17,9 +17,8 @@ exports.home = (req, res) {
         },
         Show_count: function(callback){
             Show.count(callback);
-        },
+        }
     }, function(err, results){
         res.render('home', {title: 'Podcast App Home', error:err, data:results });
-    }
-    })
+    });
 }
