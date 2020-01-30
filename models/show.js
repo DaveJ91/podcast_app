@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var ShowSchema = new Schema(
     {
         podcast: {type: Schema.Types.ObjectId, ref: 'Podcast', required: true},
-        guest: {type: Schema.Types.ObjectId, ref: 'Person', required:false}
+        guest: [{type: Schema.Types.ObjectId, ref: 'Person', required:false}],
         host: {type: Schema.Types.ObjectId, ref: 'Person', required:true},
         topic: {type: Schema.Types.ObjectId, ref: 'Topic', required:true},
         date_published: { type: Date, default: Date.now },

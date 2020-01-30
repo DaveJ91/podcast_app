@@ -6,8 +6,8 @@ var PodcastSchema = new Schema(
         name: {type: String, required: true, max: 100},
         host: {type: Schema.Types.ObjectId, ref: 'Host', required: true},
         started: {type: Date},
-        youtube: {type: String},
-        soundcloud: {type: String},
+        youtube_link: {type: String},
+        soundcloud_link: {type: String},
         genre: {type: Schema.Types.ObjectId, ref: 'Genre', required: true},
         // logo: {data: Buffer, contentType: String} // Not Implemented yet
 
