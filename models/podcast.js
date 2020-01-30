@@ -8,7 +8,8 @@ var PodcastSchema = new Schema(
         started: {type: Date},
         youtube: {type: String},
         soundcloud: {type: String},
-        genre: {type: Schema.Types.ObjectId, ref: 'Genre', required: true}
+        genre: {type: Schema.Types.ObjectId, ref: 'Genre', required: true},
+        // logo: {data: Buffer, contentType: String} // Not Implemented yet
 
     }
 )
