@@ -20,7 +20,7 @@ PodcastSchema
     .virtual('url')
     .get('url')
     .get(function(){
-        return '/podcast' + this._id
+        return '/podcast/' + this._id
     });
 
 // Export Model

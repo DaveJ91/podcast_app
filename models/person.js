@@ -19,7 +19,7 @@ PersonSchema
     .virtual('url')
     .get('url')
     .get(function(){
-        return '/person' + this.id
+        return '/person/' + this.id
     })
 
 // Virtual for Appearances on other shows
