@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 var ShowSchema = new Schema(
     {
+        title: {type: String, required:true, max: 100}
         podcast: {type: Schema.Types.ObjectId, ref: 'Podcast', required: true},
         guest: [{type: Schema.Types.ObjectId, ref: 'Person', required:false}],
         host: {type: Schema.Types.ObjectId, ref: 'Person', required:true},
