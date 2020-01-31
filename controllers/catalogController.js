@@ -9,16 +9,21 @@ var Genre = require('../models/genre')
 var async = require('async');
 
 // Home Page
-exports.home = function(req, res){
+exports.home = function(req, res, next){
 
-    async.parallel({
-        Podcast_count: function(callback){
-            Podcast.count(callback);
-        },
-        Show_count: function(callback){
-            Show.count(callback);
-        }
-    }, function(err, results){
-        res.render('home', {title: 'Podcast App Home', error:err, data:results });
-    });
-}
+    console.log("requested home page")
+    res.render('home', { title: 'Home'});
+        
+    };
+
+    // async.parallel({
+    //     Podcast_count: function(callback){
+    //         Podcast.count(callback);
+    //     },
+    //     Show_count: function(callback){
+    //         Show.count(callback);
+    //     },
+    // }, function(err, results){
+    //     res.render('home', {title: 'Podcast App Home', error:err, data:results });
+    // });
+

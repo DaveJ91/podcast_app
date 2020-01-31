@@ -1,0 +1,31 @@
+extends layout 
+
+block content
+
+    div.container(style="padding: 10vh 20vw")
+        
+
+        form.ui.form(method="POST")
+            h2.ui.dividing.header Create a Podcast:
+            
+            div.field
+                label(for="") Podcast Name:
+                input#podcastName-input(type="text", name="name", placeholder="Podcast Name")
+
+            div.field
+                label(for="") Host:
+                input#host-input(type="text", name="host", placeholder="Host Name")
+                
+            div.field
+                label(for="") Genre:
+                input#genre-input(type="text", name="genre", placeholder="Genre")
+
+            div.field
+                label(for="") Youtube Link:
+                input#youtube-input(type="text", name="youtube", placeholder="Link to Youtube Page")
+
+            div.field
+                label(for="") Soundcloud Link:
+                input#soundcloud-input(type="text", name="soundcloud", placeholder="Link to Podcast Soundcloud Page")
+
+            button.ui.button(type="submit") Create Podcast

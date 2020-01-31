@@ -40,4 +40,24 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
+// Mongo DB set up
+
+var mongoose = require('mongoose');
+var dev_db_url = 'mongodb+srv://david:password123!@podcastapp-junlr.mongodb.net/test?retryWrites=true&w=majority'
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
+mongoose.connect(mongoDB, { useNewUrlParser: true });
+mongoose.Promise = global.Promise;
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+//Get the default connection
+var db = mongoose.connection;
+
+//Bind connection to error event (to get notification of connection errors)
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+
+
+
 module.exports = app;

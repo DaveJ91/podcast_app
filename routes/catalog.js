@@ -22,8 +22,8 @@ router.get('/podcasts', podcast_controller.podcast_list);
 // router.get('/podcasts/:id', podcast_controller.podcast_detail);
 
 // PODCAST - Create View
-// router.get('/podcasts/create', podcast_controller.podcast_create_get);
-// router.post('/podcasts/create', podcast_controller.podcast_create_post);
+router.get('/podcasts/create', podcast_controller.podcast_create_get);
+router.post('/podcasts/create', podcast_controller.podcast_create_post);
 
 // PODCAST - Update View
 // router.get('/podcasts/:id/update', podcast_controller.podcast_update_get);

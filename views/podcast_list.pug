@@ -1,0 +1,16 @@
+extends layout
+
+block content
+
+    p These are all the podcasts
+
+    ul
+        each podcast in podcast_list
+            li #{podcast.name}
+
+        else
+            li There are no podcasts.
+
+
+
+

@@ -22,3 +22,25 @@ exports.podcast_list = function(req, res, next){
         });
 };
 
+// Create View - GET
+exports.podcast_create_get = function(req, res, next){
+
+    // Get host, guest, genres - async function
+    async.parallel({
+        host: function(callback){
+            Person.find(callback);
+        },
+        genres: function(callback){
+            Genre.find(callback);
+        },
+    }, function(err, results) {
+        if (err) {return next(err); }
+        res.render('podcast_form', {title: 'Create Podcast', host: results.host, genres:results.genres });
+    });
+};
+
+// Create View - POST
+exports.podcast_create_post = function(req, res, next){
+    console.log(req)
+}
+

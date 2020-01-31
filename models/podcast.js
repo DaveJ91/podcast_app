@@ -4,11 +4,11 @@ var Schema = mongoose.Schema;
 var PodcastSchema = new Schema(
     {
         name: {type: String, required: true, max: 100},
-        host: {type: Schema.Types.ObjectId, ref: 'Host', required: true},
+        host: {type: Schema.Types.ObjectId, ref: 'Person'},
         started: {type: Date},
         youtube_link: {type: String},
         soundcloud_link: {type: String},
-        genre: {type: Schema.Types.ObjectId, ref: 'Genre', required: true},
+        genre: {type: Schema.Types.ObjectId, ref: 'Genre'},
         // logo: {data: Buffer, contentType: String} // Not Implemented yet
 
     }
