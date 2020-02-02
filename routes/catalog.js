@@ -6,8 +6,7 @@ var router = express.Router();
 var podcast_controller = require('../controllers/podcastController');
 var show_controller = require('../controllers/showController');
 var person_controller = require('../controllers/personController'); 
-var genre_controller = require('../controllers/genreController'); 
-var topic_controller = require('../controllers/topicController'); 
+
 
 
 
@@ -77,50 +76,5 @@ router.get('/people', person_controller.person_list);
 // PEOPLE - Delete View
 // router.get('/people/:id/delete', person_controller.person_delete_get);
 // router.post('/people/:id/delete', person_controller.person_delete_post);
-
-////////////////////////////
-///////// TOPIC ROUTES /////
-////////////////////////////
-
-// TOPIC - List View
-router.get('/people', topic_controller.topic_list);
-
-// TOPIC - Detail View
-// router.get('/people/:id', topic_controller.topic_detail);
-
-// TOPIC - Create View
-// router.get('/people/create', topic_controller.topic_create_get);
-// router.post('/people/create', topic_controller.topic_create_post);
-
-// TOPIC - Update View
-// router.get('/people/:id/update', topic_controller.topic_update_get);
-// router.post('/people/:id/update', topic_controller.topic_update_post);
-
-// TOPIC - Delete View
-// router.get('/people/:id/delete', topic_controller.topic_delete_get);
-// router.post('/people/:id/delete', topic_controller.topic_delete_post);
-
-//////////////////////////////
-/////// GENRE ROUTES /////////
-//////////////////////////////
-
-// GENRE - List View
-router.get('/people', genre_controller.genre_list);
-
-// GENRE - Detail View
-// router.get('/people/:id', genre_controller.genre_detail);
-
-// GENRE - Create View
-// router.get('/people/create', genre_controller.genre_create_get);
-// router.post('/people/create', genre_controller.genre_create_post);
-
-// GENRE - Update View
-// router.get('/people/:id/update', genre_controller.genre_update_get);
-// router.post('/people/:id/update', genre_controller.genre_update_post);
-
-// GENRE - Delete View
-// router.get('/people/:id/delete', genre_controller.genre_delete_get);
-// router.post('/people/:id/delete', genre_controller.genre_delete_post);
-
 
 module.exports = router;

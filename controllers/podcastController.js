@@ -1,8 +1,7 @@
 var Podcast = require('../models/podcast')
 var Show = require('../models/show')
 var Person = require('../models/person')
-var Topic = require('../models/topic')
-var Genre = require('../models/genre')
+
 
 const { body,validationResult } = require('express-validator/check');
 const { sanitizeBody } = require('express-validator/filter');
@@ -33,35 +32,20 @@ exports.podcast_create_get = function(req, res, next){
         host: function(callback){
             Person.find(callback);
         },
-        genres: function(callback){
-            Genre.find(callback);
-        },
+       
     }, function(err, results) {
         if (err) {return next(err); }
-        res.render('podcast_form', {title: 'Create Podcast', host: results.host, genres:results.genres });
+        res.render('podcast_form', {title: 'Create Podcast', host: results.host});
     });
 };
 
 // Create View - POST
 exports.podcast_create_post = [
 
-
-    // Convert the Genre to an Array
-    (req, res, next) => {
-        if(!(req.body.genre instanceof Array)){
-            if(typeof req.body.genre==='undefined')
-            req.body.genre=[];
-            else
-            req.body.genre=new Array(req.body.genre);
-        }
-        next();
-    },
-
     //Validate the Fields
     body('name', 'Name must not be empty.').isLength({min:1}).trim(),
     // body('host', 'Host must not be empty.').isLength({min:1}).trim(),
     
-
     //Sanitize the fields
     sanitizeBody('*').escape(),
     
@@ -75,8 +59,8 @@ exports.podcast_create_post = [
         var podcast = new Podcast(
             {
                 name: req.body.name,
-                // host: req.body.host,
-                // genre: req.body.genre,
+                host: req.body.host,
+                genre: req.body.genre,
                 youtube_link: req.body.youtube,
                 soundcloud_link: req.body.soundcloud
 
@@ -91,9 +75,7 @@ exports.podcast_create_post = [
                 hosts: function(callback){
                     Person.find(callback);
                 },
-                genres: function(callback){
-                    Genre.find(callback)
-                },
+              
             }, function(err, results) {
                 if (err) {return next(err); }
                 

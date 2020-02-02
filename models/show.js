@@ -7,8 +7,8 @@ var ShowSchema = new Schema(
         podcast: {type: Schema.Types.ObjectId, ref: 'Podcast', required: true},
         guest: [{type: Schema.Types.ObjectId, ref: 'Person', required:false}],
         host: {type: Schema.Types.ObjectId, ref: 'Person', required:true},
-        topic: {type: Schema.Types.ObjectId, ref: 'Topic', required:true},
-        date_published: { type: Date, default: Date.now },
+        topic: {type: String, required:false, max: 600},
+        date_published: {type: Date, default: Date.now },
         length_mins: {type: Number, min: 1, max: 600},
         summary: {type: String, required:false, max: 1000},
         show_notes: {type: String, required:false, max: 10000}

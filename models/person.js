@@ -9,8 +9,7 @@ var PersonSchema = new Schema(
         website: {type: String, required:false},
         description: {type: String, required: false},
         podcast: [{type: Schema.Types.ObjectId, ref: 'Podcast', required: true},]
-        // book - NOT IMPLEMENTED,
-        // picture - NOT IMPLEMENTED
+      
 
     }
 )
