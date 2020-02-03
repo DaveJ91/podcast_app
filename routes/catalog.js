@@ -67,7 +67,7 @@ router.get('/people', person_controller.person_list);
 
 // PEOPLE - Create View
 router.get('/people/create', person_controller.person_create_get);
-// router.post('/people/create', person_controller.person_create_post);
+router.post('/people/create', person_controller.person_create_post);
 
 // PEOPLE - Update View
 // router.get('/people/:id/update', person_controller.person_update_get);

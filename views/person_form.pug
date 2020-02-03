@@ -1,0 +1,35 @@
+extends layout
+
+block content
+
+    div.container(style="padding: 10vh 20vw")
+        
+
+        form.ui.form(method="POST")
+            h2.ui.dividing.header Add a Person:
+            
+            div.field
+                label(for="") First Name:
+                input#firstName-input(type="text", name="firstName", placeholder="First Name")
+
+            div.field
+                label(for="") Last Name:
+                input#lastName-input(type="text", name="lastName", placeholder="Last Name")
+                
+            div.field
+                label(for="") Expertise:
+                input#expertise-input(type="text", name="expertise", placeholder="Expertise")
+
+            div.field
+                label(for="") Website:
+                input#website-input(type="text", name="website", placeholder="Website")
+
+            div.field
+                label(for="") Description:
+                input#description-input(type="text", name="description", placeholder="Description")
+
+            div.field
+                label(for="") Podcast:
+                input#podcast-input(type="text", name="podcast", placeholder="Podcast")
+
+            button.ui.button(type="submit") Create Person
