@@ -8,9 +8,7 @@ var PersonSchema = new Schema(
         expertise: {type: String, required: true}, // should be array
         website: {type: String, required:false},
         description: {type: String, required: false},
-        podcast: [{type: Schema.Types.ObjectId, ref: 'Podcast', required: true},]
-      
-
+        podcast: {type: String, required: true},
     }
 )
 

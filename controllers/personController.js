@@ -12,7 +12,6 @@ exports.person_list = function(req, res, next){
     Person.find()
         .sort([['last_name', 'ascending']])
         .exec(function(err, list_persons) {
-            console.log(list_persons)
             
             if (err) {return next(err)}
             else {
@@ -21,3 +20,7 @@ exports.person_list = function(req, res, next){
         });
 };
 
+// Create View - Get
+exports.person_create_get = function(req, res, next){
+        res.render('person_form', {title: 'Create a Person'})
+}
