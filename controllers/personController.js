@@ -2,6 +2,7 @@ var Podcast = require('../models/podcast')
 var Show = require('../models/show')
 var Person = require('../models/person')
 
+
 const { body, validationResult } = require('express-validator/check');
 const { sanitizeBody } = require('express-validator/filter');
 
@@ -21,12 +22,17 @@ exports.person_list = function(req, res, next){
         });
 };
 
-// Create View on GET
+// Person Detail View
+exports.person_detail = function(req, res, next) {
+    
+}
+
+// Create View - GET
 exports.person_create_get = function(req, res, next){
         res.render('person_form', {title: 'Create a Person'})
 }
 
-// Handle Author create on POST
+// Create View - POST
 exports.person_create_post = [
     
     // Validate Fields
@@ -44,13 +50,11 @@ exports.person_create_post = [
     sanitizeBody('description').escape(),
 
     // Process request after validation and sanitization
-    (res, req, next) => {
+    (req, res, next) => {
 
         // extract validation errors from a request
-        console.log(req)
+    
         const errors = validationResult(req);
-
-
 
         // Create Person object with escaped and trimmed data
         var person = new Person(
@@ -71,10 +75,10 @@ exports.person_create_post = [
         }
         else {
             person.save(function(err){
-                console.log("saving person")
+             
                 if (err) {return next(err); }
-                res.redirect('/catalog/people')
-            })
+                res.redirect('/catalog/people');
+            });
         }
     }
     
