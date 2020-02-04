@@ -63,7 +63,7 @@ router.get('/shows', show_controller.show_list);
 router.get('/people', person_controller.person_list);
 
 // PEOPLE - Detail View
-// router.get('/people/:id', person_controller.person_detail);
+router.get('/people/:id', person_controller.person_detail);
 
 // PEOPLE - Create View
 router.get('/people/create', person_controller.person_create_get);

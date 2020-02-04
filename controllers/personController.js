@@ -24,7 +24,26 @@ exports.person_list = function(req, res, next){
 
 // Person Detail View
 exports.person_detail = function(req, res, next) {
-    
+
+    async.parallel({
+        person: function(callback) {
+            Person.findById(req.params.id)
+                .exec(callback)
+        },
+
+        // Get the podcasts the person hosts
+        // Get podcast appeanances
+    }, function(err, results) {
+        if (err) { return next(err); }
+        if (results.person ==null){
+            var err = new Error('Person not Found');
+            err.status = 404;
+            return next(err);
+        }
+        console.log(results.person)
+        res.render('person_detail', {title: 'Person Detail', person:results.person })
+    })
+
 }
 
 // Create View - GET
@@ -71,7 +90,12 @@ exports.person_create_post = [
         if (!errors.isEmpty()) {
             console.log(errors)
 
-            // if errors re-render the form - need to do this
+
+            // if errpors re-render the form - with sanitization and validation messages
+            res.render('person_form', {title: 'Person Form', person:person, errors: errors.array()});
+            console.log("error -person details")
+            console.log(person)
+            return;
         }
         else {
             person.save(function(err){
