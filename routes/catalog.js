@@ -62,8 +62,7 @@ router.get('/shows', show_controller.show_list);
 // PEOPLE - List View
 router.get('/people', person_controller.person_list);
 
-// PEOPLE - Detail View
-router.get('/people/:id', person_controller.person_detail);
+
 
 // PEOPLE - Create View
 router.get('/people/create', person_controller.person_create_get);
@@ -76,5 +75,8 @@ router.post('/people/create', person_controller.person_create_post);
 // PEOPLE - Delete View
 // router.get('/people/:id/delete', person_controller.person_delete_get);
 // router.post('/people/:id/delete', person_controller.person_delete_post);
+
+// PEOPLE - Detail View
+router.get('/people/:id', person_controller.person_detail);
 
 module.exports = router;
