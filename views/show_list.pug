@@ -5,5 +5,6 @@ block content
     h2 this is the show list
 
     ul
-        each show in show_list
-            li #{show.title}
+    each show in show_list
+        li 
+            a(href=show.url) #{show.title}

@@ -21,3 +21,22 @@ exports.show_list = function(req, res, next){
         });
 };
 
+// Detail View
+exports.show_detail = function(req, res, next){
+    
+    async.parallel({
+        show: function(callback) {
+            Show.findById(req.params.id)
+                .exec(callback)
+        },
+    }, function(err, results){
+        if (err) { return next(err); }
+        if (results.show ==null){
+            var err = new Error('Show not found');
+            err.status = 404;
+            return next(err);
+        }
+        res.render('show_detail', {title: 'Show Detail', show:results.show })
+
+    })
+}

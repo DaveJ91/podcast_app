@@ -19,9 +19,8 @@ var ShowSchema = new Schema(
 // Virtual for the Show URL
 ShowSchema
     .virtual('url')
-    .get('url')
     .get(function(){
-        return '/show/' + this.id
+        return '/shows/' + this.id
         // better to show: this.podcast._id + this.id...
     })
 

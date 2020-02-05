@@ -15,11 +15,12 @@ var PersonSchema = new Schema(
 // Virtual for Person URL
 PersonSchema
     .virtual('url')
-    .get('url')
     .get(function(){
-        return '/person/' + this.id
+        return this.id
     })
 
+
+ 
 // Virtual for Appearances on other shows
 
 module.exports = mongoose.model('Person', PersonSchema)

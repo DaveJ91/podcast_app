@@ -39,8 +39,7 @@ router.post('/podcasts/create', podcast_controller.podcast_create_post);
 // SHOW - List View
 router.get('/shows', show_controller.show_list);
 
-// SHOW - Detail View
-// router.get('/shows/:id', show_controller.show_detail);
+
 
 // SHOW - Create View
 // router.get('/shows/create', show_controller.show_create_get);
@@ -53,6 +52,9 @@ router.get('/shows', show_controller.show_list);
 // SHOW - Delete View
 // router.get('/shows/:id/delete', show_controller.show_delete_get);
 // router.post('/shows/:id/delete', show_controller.show_delete_post);
+
+// SHOW - Detail View
+router.get('/shows/:id', show_controller.show_detail);
 
 
 //////////////////////////////////////////
@@ -69,8 +71,8 @@ router.get('/people/create', person_controller.person_create_get);
 router.post('/people/create', person_controller.person_create_post);
 
 // PEOPLE - Update View
-// router.get('/people/:id/update', person_controller.person_update_get);
-// router.post('/people/:id/update', person_controller.person_update_post);
+router.get('/people/:id/update', person_controller.person_update_get);
+router.post('/people/:id/update', person_controller.person_update_post);
 
 // PEOPLE - Delete View
 // router.get('/people/:id/delete', person_controller.person_delete_get);

@@ -15,22 +15,27 @@ block content
 
             div.field
                 label(for="") Last Name:
-                input#lastName-input(type="text", name="lastName", placeholder="Last Name")
+                input#lastName-input(type="text", name="lastName", placeholder="Last Name"
+                    value=(undefined===person.last_name || ''===person.last_name ? '' : person.last_name))
                 
             div.field
                 label(for="") Expertise:
-                input#expertise-input(type="text", name="expertise", placeholder="Expertise")
+                input#expertise-input(type="text", name="expertise", placeholder="Expertise"
+                    value=(undefined===person.expertise || ''===person.expertise ? '' : person.expertise))
 
             div.field
                 label(for="") Website:
-                input#website-input(type="text", name="website", placeholder="Website")
+                input#website-input(type="text", name="website", placeholder="Website"
+                    value=(undefined===person.website || ''===person.website ? '' : person.website))
 
             div.field
                 label(for="") Description:
-                input#description-input(type="text", name="description", placeholder="Description")
+                input#description-input(type="text", name="description", placeholder="Description"
+                    value=(undefined===person.description || ''===person.description ? '' : person.description))
 
             div.field
                 label(for="") Podcast:
-                input#podcast-input(type="text", name="podcast", placeholder="Podcast")
+                input#podcast-input(type="text", name="podcast", placeholder="Podcast"
+                    value=(undefined===person.podcast || ''===person.podcast ? '' : person.podcast))
 
             button.ui.button(type="submit") Create Person
