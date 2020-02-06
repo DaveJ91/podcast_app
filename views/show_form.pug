@@ -21,7 +21,7 @@ block content
                     div.default.text Select Podcast:
                     div.menu 
                         each podcast in podcasts
-                            div.item(data-value=podcast.name) #{podcast.name}
+                            div.item(data-value=podcast._id) #{podcast.name}
                                 img.ui.mini.avatar.image(src="")
 
             div.field
@@ -33,7 +33,7 @@ block content
                     div.default.text Select Host:
                     div.menu 
                         each host in people
-                            div.item(data-value=host.name) #{host.full_name}
+                            div.item(data-value=host._id) #{host.full_name}
                                 img.ui.mini.avatar.image(src="")
                         
                     
@@ -46,28 +46,28 @@ block content
                     div.default.text Select Guest:
                     div.menu 
                         each guest in people
-                            div.item(data-value=guest.name) #{guest.full_name}
+                            div.item(data-value=guest._id) #{guest.full_name}
                                 img.ui.mini.avatar.image(src="")
                         
 
             div.field
-                label(for="") Topic:
+                label(for="topic") Topic:
                 input#topic-input(type="text", name="topic", placeholder="Topic(s)")
 
             div.field
-                label(for="") Date Published:
+                label(for="date_published") Date Published:
                 input#date-input(type="date", name="date_published", placeholder="Date Published")
 
             div.field
-                label(for="") Length(mins):
+                label(for="length") Length(mins):
                 input#length-input(type="text", name="length", placeholder="Length in mins")
             
             div.field
-                label(for="") Summary:
+                label(for="summary") Summary:
                 input#summary-input(type="text", name="summary", placeholder="Episode Summary")
             
             div.field
-                label(for="") Show Notes:
+                label(for="show_notes") Show Notes:
                 input#notes-input(type="text", name="show_notes", placeholder="Show Notes")
 
             button.ui.button(type="submit") Create Show
