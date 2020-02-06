@@ -165,7 +165,8 @@ exports.person_update_post = [
                 expertise: req.body.expertise,
                 website: req.body.website,
                 description: req.body.description,
-                podcast: req.body.podcast
+                podcast: req.body.podcast,
+                _id:req.params.id
             }
         );
 
@@ -180,7 +181,7 @@ exports.person_update_post = [
             return;
         }
         else {
-            person.save(function(err){
+            Person.findByIdAndUpdate(req.params.id, show, {}, function(err, theshow){
             
                 if (err) {return next(err); }
                 res.redirect('/catalog/people');

@@ -47,7 +47,7 @@ router.post('/shows/create', show_controller.show_create_post);
 
 // SHOW - Update View
 router.get('/shows/:id/update', show_controller.show_update_get);
-// router.post('/shows/:id/update', show_controller.show_update_post);
+router.post('/shows/:id/update', show_controller.show_update_post);
 
 // SHOW - Delete View
 // router.get('/shows/:id/delete', show_controller.show_delete_get);

@@ -16,7 +16,7 @@ var PersonSchema = new Schema(
 PersonSchema
     .virtual('url')
     .get(function(){
-        return this.id
+        return '/catalog/people/' + this._id
     })
 
 // Virtual for Full Name

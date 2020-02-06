@@ -172,6 +172,7 @@ exports.show_create_get = function(req, res, next){
         console.log(results.people)
         console.log(results.podcasts)
         res.render('show_form', {title: 'Create a Show', people: results.people, podcasts: results.podcasts, show:{}})
+
     });   
 }
 
@@ -209,7 +210,8 @@ exports.show_update_post = [
                 date_published: req.body.date_published,
                 length_mins: req.body.length,
                 summary: req.body.summary,
-                show_notes: req.body.show_notes
+                show_notes: req.body.show_notes,
+                _id:req.params.id
             }
         );
 
@@ -231,7 +233,7 @@ exports.show_update_post = [
         }
         else {
             // Data is valid - Save the new show object
-            show.save(function(err){
+            Show.findByIdAndUpdate(req.params.id, show, {}, function(err, theshow){
                 if (err) {return next(err); }
                     // Successful - redirect to list view
                     res.redirect('/catalog/shows')

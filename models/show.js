@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var moment = require('moment')
 
 var ShowSchema = new Schema(
     {
@@ -20,10 +21,16 @@ var ShowSchema = new Schema(
 ShowSchema
     .virtual('url')
     .get(function(){
-        return this.id
+        return '/catalog/shows/' + this._id
         // better to show: this.podcast._id + this.id...
     })
 
+// Virtual for the correct date format for date_published
+ShowSchema
+    .virtual('date_published_yyyy_mm_dd')
+    .get(function(){
+        return moment(this.date_published).format('YYYY-MM-DD');
+    })
 
 // Virtual - Average Rating - will be linked to User which is not implemented yet
 

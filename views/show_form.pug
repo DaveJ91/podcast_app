@@ -10,13 +10,14 @@ block content
             
             div.field
                 label(for="") Episode Title:
-                input#title-input(type="text", name="title", placeholder="Episode Title")
+                input#title-input(type="text", name="title", placeholder="Episode Title"
+                    value=(undefined=== show.title ? '' : show.title))
 
             div.field
                 label(for="") Podcast:
 
                 div.ui.fluid.search.selection.dropdown 
-                    input(type="hidden" name="podcast")
+                    input(type="hidden" name="podcast" value=(undefined=== show.podcast ? '' : show.podcast))
                     i.dropdown.icon
                     div.default.text Select Podcast:
                     div.menu 
@@ -28,7 +29,7 @@ block content
                 label(for="") Host:
 
                 div.ui.fluid.search.selection.dropdown 
-                    input(type="hidden" name="host")
+                    input(type="hidden" name="host" value=(undefined=== show.host ? '' : show.host))
                     i.dropdown.icon
                     div.default.text Select Host:
                     div.menu 
@@ -41,7 +42,7 @@ block content
                 label(for="") Guest:
 
                 div.ui.fluid.search.selection.dropdown 
-                    input(type="hidden" name="guest")
+                    input(type="hidden" name="guest" value=(undefined=== show.guest ? '' : show.guest))
                     i.dropdown.icon
                     div.default.text Select Guest:
                     div.menu 
@@ -52,23 +53,23 @@ block content
 
             div.field
                 label(for="topic") Topic:
-                input#topic-input(type="text", name="topic", placeholder="Topic(s)")
+                input#topic-input(type="text", name="topic", placeholder="Topic(s)" value=(undefined=== show.topic ? '' : show.topic))
 
             div.field
                 label(for="date_published") Date Published:
-                input#date-input(type="date", name="date_published", placeholder="Date Published")
+                input#date-input(type="date", name="date_published", placeholder="Date Published" value=(undefined=== show.date_published_yyyy_mm_dd ? '' : show.date_published_yyyy_mm_dd))
 
             div.field
                 label(for="length") Length(mins):
-                input#length-input(type="text", name="length", placeholder="Length in mins")
+                input#length-input(type="text", name="length", placeholder="Length in mins" value=(undefined=== show.length_mins ? '' : show.length_mins))
             
             div.field
                 label(for="summary") Summary:
-                input#summary-input(type="text", name="summary", placeholder="Episode Summary")
+                input#summary-input(type="text", name="summary", placeholder="Episode Summary" value=(undefined=== show.summary ? '' : show.summary))
             
             div.field
                 label(for="show_notes") Show Notes:
-                input#notes-input(type="text", name="show_notes", placeholder="Show Notes")
+                input#notes-input(type="text", name="show_notes", placeholder="Show Notes" value=(undefined=== show.show_notes ? '' : show.show_notes))
 
             button.ui.button(type="submit") Create Show
 
