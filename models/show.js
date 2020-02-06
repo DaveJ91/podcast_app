@@ -20,7 +20,7 @@ var ShowSchema = new Schema(
 ShowSchema
     .virtual('url')
     .get(function(){
-        return 'shows/' + this.id
+        return this.id
         // better to show: this.podcast._id + this.id...
     })
 
