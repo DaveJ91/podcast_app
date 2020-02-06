@@ -1,0 +1,79 @@
+extends layout 
+
+block content
+
+    div.container(style="padding: 10vh 20vw")
+        
+
+        form.ui.form(method="POST")
+            h2.ui.dividing.header Create an Episode:
+            
+            div.field
+                label(for="") Episode Title:
+                input#title-input(type="text", name="title", placeholder="Episode Title")
+
+            div.field
+                label(for="") Podcast:
+
+                div.ui.fluid.search.selection.dropdown 
+                    input(type="hidden" name="podcast")
+                    i.dropdown.icon
+                    div.default.text Select Podcast:
+                    div.menu 
+                        each podcast in podcasts
+                            div.item(data-value=podcast.name) #{podcast.name}
+                                img.ui.mini.avatar.image(src="")
+
+            div.field
+                label(for="") Host:
+
+                div.ui.fluid.search.selection.dropdown 
+                    input(type="hidden" name="host")
+                    i.dropdown.icon
+                    div.default.text Select Host:
+                    div.menu 
+                        each host in people
+                            div.item(data-value=host.name) #{host.full_name}
+                                img.ui.mini.avatar.image(src="")
+                        
+                    
+            div.field
+                label(for="") Guest:
+
+                div.ui.fluid.search.selection.dropdown 
+                    input(type="hidden" name="guest")
+                    i.dropdown.icon
+                    div.default.text Select Guest:
+                    div.menu 
+                        each guest in people
+                            div.item(data-value=guest.name) #{guest.full_name}
+                                img.ui.mini.avatar.image(src="")
+                        
+
+            div.field
+                label(for="") Topic:
+                input#topic-input(type="text", name="topic", placeholder="Topic(s)")
+
+            div.field
+                label(for="") Date Published:
+                input#date-input(type="date", name="date_published", placeholder="Date Published")
+
+            div.field
+                label(for="") Length(mins):
+                input#length-input(type="text", name="length", placeholder="Length in mins")
+            
+            div.field
+                label(for="") Summary:
+                input#summary-input(type="text", name="summary", placeholder="Episode Summary")
+            
+            div.field
+                label(for="") Show Notes:
+                input#notes-input(type="text", name="show_notes", placeholder="Show Notes")
+
+            button.ui.button(type="submit") Create Show
+
+block scripts
+    script.
+       
+        $('.ui.dropdown').dropdown();
+        

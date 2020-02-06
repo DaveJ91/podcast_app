@@ -5,7 +5,7 @@ var ShowSchema = new Schema(
     {
         title: {type: String, required:true, max: 100},
         podcast: {type: Schema.Types.ObjectId, ref: 'Podcast', required: true},
-        guest: [{type: Schema.Types.ObjectId, ref: 'Person', required:false}],
+        guest: {type: Schema.Types.ObjectId, ref: 'Person', required:false},
         host: {type: Schema.Types.ObjectId, ref: 'Person', required:true},
         topic: {type: String, required:false, max: 600},
         date_published: {type: Date, default: Date.now },
@@ -20,7 +20,7 @@ var ShowSchema = new Schema(
 ShowSchema
     .virtual('url')
     .get(function(){
-        return '/shows/' + this.id
+        return 'shows/' + this.id
         // better to show: this.podcast._id + this.id...
     })
 

@@ -42,8 +42,8 @@ router.get('/shows', show_controller.show_list);
 
 
 // SHOW - Create View
-// router.get('/shows/create', show_controller.show_create_get);
-// router.post('/shows/create', show_controller.show_create_post);
+router.get('/shows/create', show_controller.show_create_get);
+router.post('/shows/create', show_controller.show_create_post);
 
 // SHOW - Update View
 // router.get('/shows/:id/update', show_controller.show_update_get);

@@ -19,6 +19,13 @@ PersonSchema
         return this.id
     })
 
+// Virtual for Full Name
+PersonSchema
+    .virtual('full_name')
+    .get(function(){
+        return `${this.first_name} ${this.last_name}`
+    })
+
 
  
 // Virtual for Appearances on other shows
